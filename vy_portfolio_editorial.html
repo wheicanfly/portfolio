@@ -1,0 +1,302 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@300;400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#f7f4ef;--ink:#141210;--ink2:#4a4640;--ink3:#9a9490;
+  --line:#d8d2c8;--spot:#d4380d;--spot2:#0a4d3c;
+}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;font-size:14px;}
+
+nav{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:1.4rem 2rem;
+  border-bottom:1px solid var(--line);
+}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;}
+.nav-center{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);text-align:center;}
+.nav-right{display:flex;justify-content:flex-end;gap:1.5rem;}
+.nav-right a{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink2);transition:color .15s;}
+.nav-right a:hover{color:var(--spot);}
+
+/* HERO — newspaper grid */
+.hero{display:grid;grid-template-columns:1fr 2px 1.6fr 2px .9fr;min-height:72vh;border-bottom:1px solid var(--line);}
+.hero-divider{background:var(--line);}
+
+.h-col1{padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:space-between;}
+.h-col1-top{}
+.edition{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.8rem;padding-bottom:.8rem;border-bottom:1px solid var(--line);}
+.big-initial{font-family:'Playfair Display',serif;font-size:5.5rem;line-height:.85;font-weight:700;color:var(--spot);display:block;margin-bottom:.5rem;}
+.h-name{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;line-height:1.05;letter-spacing:-.02em;}
+.h-title{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:.8rem;}
+.h-col1-bottom{}
+.h-location{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);}
+.h-location span{color:var(--ink2);}
+
+.h-col2{padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:space-between;}
+.headline-xl{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:700;line-height:1.0;letter-spacing:-.03em;margin-bottom:1.5rem;}
+.headline-xl em{font-style:italic;color:var(--spot);}
+.hero-lead{font-size:.88rem;color:var(--ink2);line-height:1.75;max-width:52ch;margin-bottom:2rem;}
+.pull-quote{border-left:3px solid var(--spot);padding-left:1rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--ink2);line-height:1.5;max-width:42ch;}
+.pq-attr{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.5rem;font-style:normal;}
+
+.h-col3{padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1.5rem;}
+.stat-block{padding-bottom:1.5rem;border-bottom:1px solid var(--line);}
+.stat-block:last-child{border-bottom:none;}
+.stat-num-lg{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1;letter-spacing:-.03em;}
+.stat-num-lg.red{color:var(--spot);}
+.stat-num-lg.grn{color:var(--spot2);}
+.stat-lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:.4rem;line-height:1.6;}
+
+/* MARQUEE */
+.ticker{overflow:hidden;border-bottom:1px solid var(--line);border-top:1px solid var(--line);background:var(--ink);padding:.55rem 0;}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 20s linear infinite;}
+.ticker-track s{text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,239,.45);padding:0 1.5rem;}
+.ticker-track s.sep{color:var(--spot);padding:0;opacity:.7;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* WORK — editorial cards */
+.section{padding:3rem 2rem;}
+.sec-head{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:1px solid var(--line);}
+.sec-label{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;}
+.sec-sub{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);}
+.sec-line{flex:1;height:1px;background:var(--line);}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--ink3);}
+
+.work-grid{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;border:1px solid var(--line);}
+.work-divider{background:var(--line);}
+.work-card{padding:2rem 1.75rem;transition:background .15s;}
+.work-card:hover{background:rgba(212,56,13,.03);}
+.wc-index{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--ink3);margin-bottom:1.2rem;}
+.wc-client{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.6rem;}
+.wc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;line-height:1.25;margin-bottom:1rem;}
+.wc-meta{display:flex;gap:1rem;margin-bottom:.9rem;flex-wrap:wrap;}
+.wc-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .5rem;border:1px solid var(--line);color:var(--ink3);}
+.wc-result{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--spot);letter-spacing:-.02em;margin-bottom:.3rem;}
+.wc-result-lbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
+.wc-body{font-size:.82rem;color:var(--ink2);line-height:1.7;margin-top:.9rem;}
+
+/* PROFILE */
+.profile-grid{display:grid;grid-template-columns:1.4fr 1px 1fr;border-top:1px solid var(--line);}
+.p-main{padding:3rem 2rem;}
+.p-bio{font-size:.92rem;color:var(--ink2);line-height:1.85;margin-bottom:2rem;max-width:58ch;}
+.p-bio strong{color:var(--ink);font-weight:700;}
+.p-side{padding:3rem 2rem;}
+.p-sec-title{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--line);}
+.cert-item{display:flex;justify-content:space-between;align-items:baseline;padding:.55rem 0;border-bottom:1px solid var(--line);}
+.cert-item:last-child{border-bottom:none;}
+.cert-name{font-size:.8rem;color:var(--ink2);}
+.cert-yr{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--ink3);}
+
+.skills-wrap{margin-top:2rem;}
+.skill-row{margin-bottom:.9rem;}
+.skill-name{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem;display:flex;justify-content:space-between;}
+.skill-bar{height:2px;background:var(--line);}
+.skill-fill{height:100%;background:var(--ink);}
+
+/* CONTACT STRIP */
+.contact-strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);}
+.cs-item{padding:1.8rem 2rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:.4rem;}
+.cs-item:last-child{border-right:none;}
+.cs-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);}
+.cs-val{font-size:.88rem;font-weight:500;color:var(--ink);}
+.cs-val a{color:var(--ink);text-decoration:none;}
+.cs-val a:hover{color:var(--spot);}
+
+/* FOOTER */
+footer{padding:1rem 2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.ft{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);}
+
+@media(max-width:680px){
+  .hero{grid-template-columns:1fr;}.hero-divider{display:none;}
+  .h-col3{flex-direction:row;flex-wrap:wrap;gap:1rem;padding:1.5rem 1.25rem;}
+  .h-col3 .stat-block{flex:1;min-width:120px;border-bottom:none;border-right:1px solid var(--line);padding-right:1rem;}
+  .work-grid{grid-template-columns:1fr;}.work-divider{display:none;}
+  .work-card{border-bottom:1px solid var(--line);}
+  .profile-grid{grid-template-columns:1fr;}.p-main{padding:2rem 1.25rem;}.p-side{padding:1.5rem 1.25rem;}
+  .contact-strip{grid-template-columns:1fr 1fr;}.cs-item:nth-child(3){border-right:none;}
+  .hero-divider,.p-divider{display:none;}
+  section{padding:2rem 1.25rem;}
+  nav{grid-template-columns:1fr auto;gap:.5rem;}.nav-right{display:none;}
+}
+</style>
+
+<h2 class="sr-only">Portfolio of Vy Pham Thanh — Performance Marketing professional based in Ho Chi Minh City</h2>
+
+<nav>
+  <span class="nav-name">Vy Pham Thanh</span>
+  <span class="nav-center">Digital Marketing Portfolio — 2026</span>
+  <div class="nav-right">
+    <a href="#work" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'});return false;">Work</a>
+    <a href="#profile" onclick="document.getElementById('profile').scrollIntoView({behavior:'smooth'});return false;">Profile</a>
+    <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});return false;">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="h-col1">
+    <div class="h-col1-top">
+      <p class="edition">Portfolio · Vol. 01 · HCM City · 2026</p>
+      <span class="big-initial">V</span>
+      <h1 class="h-name">Vy Pham<br>Thanh</h1>
+      <p class="h-title">Performance Marketing · Digital Growth</p>
+    </div>
+    <div class="h-col1-bottom">
+      <p class="h-location">Based in <span>Hồ Chí Minh City</span><br>Open to <span>remote &amp; on-site</span></p>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="h-col2">
+    <div>
+      <h2 class="headline-xl">From<br><em>awareness</em><br>to revenue —<br>I close the loop.</h2>
+      <p class="hero-lead">Two years building and optimising campaigns across Meta, Google, and TikTok — first from the brand side, then inside an agency managing 600M VND monthly. I don't just run ads; I track why they work and make them work harder.</p>
+      <div class="pull-quote">
+        "Built an AI monitoring bot to catch campaign anomalies in real time, because waiting for Monday's report is already too late."
+        <div class="pq-attr">— AdOpt Watchdog, AnyMind Group 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="h-col3">
+    <div class="stat-block">
+      <div class="stat-num-lg red">10.3×</div>
+      <div class="stat-lbl">Peak ROAS — retail<br>Meta campaign, Mar 2026</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num-lg">600M</div>
+      <div class="stat-lbl">VND monthly media<br>spend managed</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num-lg grn">+439%</div>
+      <div class="stat-lbl">Email click-rate lift<br>B2B · ANZ market</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num-lg">103%</div>
+      <div class="stat-lbl">KPI attainment —<br>branding campaign</div>
+    </div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <s>Meta Ads</s><s class="sep">×</s><s>Google Ads</s><s class="sep">×</s><s>TikTok Ads</s><s class="sep">×</s><s>SEO</s><s class="sep">×</s><s>GA4</s><s class="sep">×</s><s>Growth Marketing</s><s class="sep">×</s><s>B2B Email</s><s class="sep">×</s><s>Campaign Strategy</s><s class="sep">×</s><s>ROAS Optimisation</s><s class="sep">×</s><s>Pixel Tracking</s><s class="sep">×</s><s>A/B Testing</s><s class="sep">×</s><s>Media Planning</s><s class="sep">×</s>
+    <s>Meta Ads</s><s class="sep">×</s><s>Google Ads</s><s class="sep">×</s><s>TikTok Ads</s><s class="sep">×</s><s>SEO</s><s class="sep">×</s><s>GA4</s><s class="sep">×</s><s>Growth Marketing</s><s class="sep">×</s><s>B2B Email</s><s class="sep">×</s><s>Campaign Strategy</s><s class="sep">×</s><s>ROAS Optimisation</s><s class="sep">×</s><s>Pixel Tracking</s><s class="sep">×</s><s>A/B Testing</s><s class="sep">×</s><s>Media Planning</s><s class="sep">×</s>
+  </div>
+</div>
+
+<section class="section" id="work">
+  <div class="sec-head">
+    <span class="sec-label">Selected work</span>
+    <div class="sec-line"></div>
+    <span class="sec-num">01 / 03</span>
+  </div>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="wc-index">Case 001</div>
+      <div class="wc-client">Retail · AnyMind Group</div>
+      <h3 class="wc-title">Scaling ROAS 4× through daily paid media optimisation</h3>
+      <div class="wc-meta">
+        <span class="wc-tag">Meta Ads</span>
+        <span class="wc-tag">Conversion</span>
+        <span class="wc-tag">Retail</span>
+      </div>
+      <div class="wc-result">2.61 → 10.3×</div>
+      <div class="wc-result-lbl">ROAS over 6 weeks</div>
+      <p class="wc-body">Daily bid strategy refinement, audience segmentation, and creative rotation. Paid conversion campaigns became ~50% of total client revenue. The result came from compounding small daily wins, not a single intervention.</p>
+    </div>
+    <div class="work-divider"></div>
+    <div class="work-card">
+      <div class="wc-index">Case 002</div>
+      <div class="wc-client">B2B Tech · Kyanon Digital</div>
+      <h3 class="wc-title">Rebuilding B2B email performance from near-zero engagement</h3>
+      <div class="wc-meta">
+        <span class="wc-tag">Email Marketing</span>
+        <span class="wc-tag">B2B</span>
+        <span class="wc-tag">ANZ Market</span>
+      </div>
+      <div class="wc-result">6.4% → 22.1%</div>
+      <div class="wc-result-lbl">Open rate in 2 months</div>
+      <p class="wc-body">Applied A/B testing and audience segmentation to sequences targeting ANZ tech decision-makers. Click rate moved from 1.8% to 9.7% in the same period. Identified 58% of CV traffic coming from social via UTM attribution on a custom WordPress microsite.</p>
+    </div>
+    <div class="work-divider"></div>
+    <div class="work-card">
+      <div class="wc-index">Case 003</div>
+      <div class="wc-client">Multi-brand · AnyMind Group</div>
+      <h3 class="wc-title">Cross-platform branding: Hublot, Vietjet, Honeywell, Central Retail</h3>
+      <div class="wc-meta">
+        <span class="wc-tag">Multi-platform</span>
+        <span class="wc-tag">Branding</span>
+        <span class="wc-tag">4 industries</span>
+      </div>
+      <div class="wc-result">103% KPI</div>
+      <div class="wc-result-lbl">Retail branding attainment</div>
+      <p class="wc-body">Managed awareness and conversion campaigns for luxury, aviation, industrial, and retail clients simultaneously — across Meta, Google, and TikTok. Built automated tracking and anomaly detection (AdOpt Watchdog) to sustain performance across all accounts.</p>
+    </div>
+  </div>
+</section>
+
+<div class="profile-grid" id="profile">
+  <div class="p-main">
+    <div class="sec-head">
+      <span class="sec-label">Profile</span>
+      <div class="sec-line"></div>
+      <span class="sec-num">02 / 03</span>
+    </div>
+    <p class="p-bio">I started on the brand side at <strong>Kyanon Digital</strong> — a B2B tech consultancy — writing SEO content, building email campaigns, and learning why most marketing doesn't convert. That foundation gave me something most paid media specialists lack: an understanding of the full funnel before the click.</p>
+    <p class="p-bio">Moving agency-side at <strong>AnyMind Group</strong> put me in charge of real media budgets across four industries at once. The variety taught me to context-switch fast and find the universal levers — audience quality, creative fatigue, bid timing — that apply regardless of vertical.</p>
+    <p class="p-bio">I build my own tools when platforms fall short. <strong>AdOpt Watchdog</strong> is an AI bot I built to monitor campaigns in real time and surface anomalies before they erode performance. Systems thinking is part of how I work, not an afterthought.</p>
+    <div class="skills-wrap">
+      <div class="p-sec-title">Skill depth</div>
+      <div class="skill-row"><div class="skill-name"><span>Meta Ads</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>Google Ads</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>TikTok Ads</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>SEO & Content</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>Analytics & Tracking</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>Email Marketing (B2B)</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+    </div>
+  </div>
+  <div class="hero-divider" style="background:var(--line);width:1px;"></div>
+  <div class="p-side">
+    <div class="p-sec-title">Experience</div>
+    <div class="cert-item"><span class="cert-name" style="font-weight:600;">AnyMind Group</span><span class="cert-yr">2025–2026</span></div>
+    <div class="cert-item" style="padding-left:.75rem;"><span class="cert-name">Ad Operations, Performance Marketing</span></div>
+    <div class="cert-item"><span class="cert-name" style="font-weight:600;">Kyanon Digital</span><span class="cert-yr">2023–2025</span></div>
+    <div class="cert-item" style="padding-left:.75rem;border-bottom:1px solid var(--line);"><span class="cert-name">Marketing Executive</span></div>
+
+    <div class="p-sec-title" style="margin-top:2rem;">Certifications</div>
+    <div class="cert-item"><span class="cert-name">Meta Performance Marketing Specialist</span><span class="cert-yr">2025</span></div>
+    <div class="cert-item"><span class="cert-name">Meta Media Planning Professional</span><span class="cert-yr">2025</span></div>
+    <div class="cert-item"><span class="cert-name">TikTok Media Buying Professional</span><span class="cert-yr">2026</span></div>
+    <div class="cert-item"><span class="cert-name">Google Ads Search</span><span class="cert-yr">2025</span></div>
+    <div class="cert-item"><span class="cert-name">Google Data Analytics Professional</span><span class="cert-yr">2026</span></div>
+    <div class="cert-item"><span class="cert-name">Google Business Intelligence</span><span class="cert-yr">2026</span></div>
+
+    <div class="p-sec-title" style="margin-top:2rem;">Education</div>
+    <div class="cert-item"><span class="cert-name">Univ. of Finance & Marketing — Marketing Mgmt</span><span class="cert-yr">2020–24</span></div>
+
+    <div class="p-sec-title" style="margin-top:2rem;">Languages</div>
+    <div class="cert-item"><span class="cert-name">Vietnamese</span><span class="cert-yr">Native</span></div>
+    <div class="cert-item"><span class="cert-name">English — TOEIC 725</span><span class="cert-yr">Professional</span></div>
+    <div class="cert-item"><span class="cert-name">Chinese</span><span class="cert-yr">HSK3 (2026)</span></div>
+  </div>
+</div>
+
+<div class="contact-strip" id="contact">
+  <div class="cs-item">
+    <span class="cs-label">Email</span>
+    <span class="cs-val"><a href="mailto:phamtthanhvy@gmail.com">phamtthanhvy@gmail.com</a></span>
+  </div>
+  <div class="cs-item">
+    <span class="cs-label">Phone / Zalo</span>
+    <span class="cs-val">0707 452 265</span>
+  </div>
+  <div class="cs-item">
+    <span class="cs-label">LinkedIn</span>
+    <span class="cs-val"><a href="https://linkedin.com/in/vy-pham-thanh" target="_blank">Vy Pham Thanh →</a></span>
+  </div>
+</div>
+
+<footer>
+  <span class="ft">Vy Pham Thanh · Portfolio 2026</span>
+  <span class="ft">Ho Chi Minh City · Vietnam</span>
+</footer>
